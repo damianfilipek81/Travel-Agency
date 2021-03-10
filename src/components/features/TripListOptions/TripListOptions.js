@@ -20,11 +20,7 @@ class TripListOptions extends React.Component {
   handleDuration(type, value) {
     console.log('Changing duration', type, value);
     // TODO - use action dispatcher from props
-    if (type == 'to') {
-      this.props.addMaxDuration(value);
-    } else {
-      this.props.addMinDuration(value);
-    }
+    this.props.changeDuration(type,value);
   }
 
   handleSearch(phrase) {
@@ -82,8 +78,7 @@ TripListOptions.propTypes = {
   changeSearchPhrase: PropTypes.func,
   addTags: PropTypes.func,
   removeTags: PropTypes.func,
-  addMaxDuration: PropTypes.func,
-  addMinDuration: PropTypes.func,
+  changeDuration: PropTypes.func,
 };
 
 export default TripListOptions;

@@ -11,15 +11,13 @@ const createActionName = name => `app/${reducerName}/${name}`;
 // action types
 export const CHANGE_PHRASE = createActionName('CHANGE_PHRASE');
 // TODO - add other action types
-export const ADD_MIN_DURATION = createActionName('ADD_MIN_DURATION');
-export const ADD_MAX_DURATION = createActionName('ADD_MAX_DURATION');
+export const CHANGE_DURATION = createActionName('CHANGE_DURATION');
 export const REMOVE_TAGS = createActionName('REMOVE_TAGS');
 export const ADD_TAGS = createActionName('ADD_TAGS');
 // action creators
 export const changeSearchPhrase = payload => ({ payload, type: CHANGE_PHRASE });
 // TODO - add other action creators
-export const addMinDuration = payload => ({ payload, type: ADD_MIN_DURATION });
-export const addMaxDuration = payload => ({ payload, type: ADD_MAX_DURATION });
+export const changeDuration = payload => ({ payload, type: CHANGE_DURATION });
 export const addTags = payload => ({ payload, type: ADD_TAGS });
 export const removeTags = payload => ({ payload, type: REMOVE_TAGS });
 
@@ -33,17 +31,12 @@ export default function reducer(statePart = [], action = {}) {
         searchPhrase: action.payload,
       };
     // TODO - handle other action types
-    case ADD_MIN_DURATION:
+    case CHANGE_DURATION:
       return {
         ...statePart,
         duration: {
-          ...statePart.duration, from: action.payload},
-      };
-    case ADD_MAX_DURATION:
-      return {
-        ...statePart,
-        duration: {
-          ...statePart.duration, to: action.payload},
+          ...statePart.duration,
+          [action.payload.type]: action.payload.value},
       };
     case ADD_TAGS:
       return {
