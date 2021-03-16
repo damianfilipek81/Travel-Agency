@@ -6,7 +6,7 @@ import pricing from '../../../data/pricing.json';
 import OrderOption from '../OrderOption/OrderOption';
 
 const OrderForm = (props) => {
-  const { tripCost, options, setOrderOption } = props;
+  const { tripCost, options, setOrderOption, days } = props;
   return (
     <Row>
       {pricing.map(option => (
@@ -15,7 +15,7 @@ const OrderForm = (props) => {
         </Col>
       ))}
       <Col xs={12}>
-        <OrderSummary tripCost={tripCost} options={options} />
+        <OrderSummary tripCost={tripCost} options={options} days={days}/>
       </Col>
     </Row>
   );
@@ -25,6 +25,7 @@ OrderForm.propTypes = {
   tripCost: PropTypes.string,
   options: PropTypes.object,
   setOrderOption: PropTypes.func,
+  days: PropTypes.number,
 };
 
 export default OrderForm;
