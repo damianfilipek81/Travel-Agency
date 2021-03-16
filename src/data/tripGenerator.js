@@ -296,6 +296,15 @@ use the code below at: https://next.json-generator.com
         }
         return out;
       },
+      regions(tags){
+        const options = 'Asia Africa Americas Oceania Europe'.split(' ');
+        const out = [];
+
+        for(let i=0; i<tags.integer(1, 3); i++){
+          out.push(options.splice(tags.integer(0, options.length - 1), 1)[0]);
+        }
+        return out;
+      },
       intro(tags) {
         return `${tags.lorem(tags.integer(2, 3), 'sentences')}`;
       },
