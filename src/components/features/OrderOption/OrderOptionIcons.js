@@ -6,7 +6,7 @@ import Icon from '../../common/Icon/Icon';
 
 
 const OrderOptionIcons = ({ values, required, currentValue, setOptionValue }) => (
-  <div className={styles.icon}>
+  <div className={styles.component}>
     {required ? '' : (
       <div className={styles.icon} onClick={() => setOptionValue('')}>
         <Icon className={styles.icon} name={'times-circle'} />
